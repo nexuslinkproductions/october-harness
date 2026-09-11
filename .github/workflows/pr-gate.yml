@@ -1,8 +1,13 @@
 name: PR Gate
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened]
+
+# security-sweep: pull_request_target -> pull_request.
+# The target variant runs with a read/write GITHUB_TOKEN + repo secrets on
+# forked PR code. This job never checks out PR code, so pull_request is safe
+# and removes the secret-exfiltration vector.
 
 jobs:
   check-contributor:
