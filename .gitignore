@@ -43,3 +43,20 @@ plans/
 .pi/hf-sessions-backup/
 collect.sh
 packages/agent/docs/extensions/pi-server-artifact/index.md
+
+# SOC2 sweep: prevent secret/PII artifacts from being committed
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+**/secrets/
+**/.claude/
+**/*_session.json
+*.log
+
